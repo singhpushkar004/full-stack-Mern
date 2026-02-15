@@ -1,0 +1,40 @@
+body{
+    background-color: black;
+    color: white;
+}
+#box{
+    height: 500px;
+    width: 400px;
+    border: 1px solid ;
+    box-shadow: 0px 0px 5px 5px white;
+    margin: 100px auto;
+    border-radius: 50px;
+    text-align: center;
+  background: #7910c4;
+background: linear-gradient(180deg,rgba(121, 16, 196, 1) , rgba(87, 199, 133, 1) );
+    color: black;
+}
+#box input{
+    height: 40px ;
+    width:250px;
+    margin-top: 50px;
+    border: 2px solid ;
+     border-radius: 5px;
+     font-size: 18px;
+}
+#box button{
+    height: 45px ;
+    width:70px;
+    margin-top: 50px;
+    border: 2px solid ;
+    border-radius: 5px;
+    font-size: 18px;
+    background-color: #56af68;
+    color: white;
+    cursor: pointer;
+
+}
+#box img{
+    height:200px;
+    width: 200px;
+}

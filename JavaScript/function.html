@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage</title>
+</head>
+<body>
+    <input type="text" id="text">
+    <button onclick="fun()">Add</button>
+  <ul id="list"></ul>
+  
+    <script>
+        function fun(){
+            let text = document.getElementById('text').value.trim();
+            if(text==''){
+                alert("Please enter text")
+                return ;
+            }
+            let myTask = JSON.parse(localStorage.getItem("task"))||[]
+            myTask.push(text);
+            localStorage.setItem("task",JSON.stringify(myTask))
+            window.location.reload();
+        }
+        function show(){
+            let data = JSON.parse(localStorage.getItem('task'))
+            data.forEach((a,i) => {
+               let ele =  document.createElement('li');
+               ele.innerHTML= `${a} <button onclick="del(${i})">Delete</button>`;
+               list.appendChild(ele)
+                
+            });
+        }
+        show();
+        function del(p){
+           let task = JSON.parse(localStorage.getItem('task'))
+           task.splice(p,1)
+        // console.log(task);
+        localStorage.setItem("task",JSON.stringify(task))
+        window.location.reload();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #header{
+            height: 100px;
+            width: 100%;
+            background-color: red;
+            transition: 1s ease;
+        }
+        #box{
+            height: 1000px;
+            width: 100%;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body id="body">
+    <div id="header"></div>
+    <div id="box"></div>
+
+    <script>
+       
+        // console.log(a);
+        let header= document.getElementById('header')
+        let body = document.getElementById('body');
+        window.addEventListener('scroll',()=>{
+            let b = window.scrollY;
+           if(b>100){
+            header.style.position='sticky'
+            header.style.top='0px'
+            header.style.backgroundColor='green'
+           }
+            else if(b<100){
+                  header.style.backgroundColor='red'
+            }
+        })
+    </script>
+</body>
+</html>e

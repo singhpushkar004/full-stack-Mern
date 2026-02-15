@@ -1,0 +1,23 @@
+.slider{
+    height: 300px;
+    width: 800px;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto;
+    position: relative;
+}
+.slider img{
+    height: 100%;
+    width: 100%;
+}
+#pre{
+    position: absolute;
+    left: 0px;
+    
+}
+#nxt{
+    position: absolute;
+    right: 0px;
+}

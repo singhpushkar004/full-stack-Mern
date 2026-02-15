@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <button onblur="fun()">Click here</button> -->
+    <!-- <button id="btn">Click here</button> -->
+    <h1>Awesome Shirts</h1>
+    <strike>999 Rs</strike>
+   
+    <span id="op">400</span><span> Rs</span>
+    Quantity
+    <select onchange="fun()" id="qty">
+        <option >1</option>
+        <option >2</option>
+        <option >3</option>
+        <option >4</option>
+    </select>
+    <script>
+        let op = parseInt(document.getElementById('op').innerHTML);
+        function fun(){
+            
+            let qty = parseInt(document.getElementById('qty').value);
+            let c = op*qty;
+            // console.log(c);
+            document.getElementById('op').innerHTML=c;
+            
+
+        }
+        // document.getElementById('btn').addEventListener('click',fun)
+        // window.addEventListener('blur',fun)
+    </script>
+</body>
+</html>

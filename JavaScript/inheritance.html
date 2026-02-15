@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Fruit{
+            name;
+            color;
+            shape;
+
+        }
+        class Apple extends Fruit{
+            
+            constructor(name,color,shape){
+                super();
+                this.name=name;
+                this.color=color;
+                this.shape = shape;
+            }
+            fun(){
+                console.log("Name of Fruit is : ",this.name);
+                console.log("Color of Fruit is : ",this.color);
+                console.log("Shape of Fruit is : ",this.shape);
+                
+            }
+        }
+        let a = new Apple("Apple","Red","Circle");
+        a.fun();
+    </script>
+</body>
+</html>

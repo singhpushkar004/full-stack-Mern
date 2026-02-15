@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slider{
+    height: 300px;
+    width: 800px;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto;
+    position: relative;
+}
+.slider .item{
+    height: 100%;
+    width: 100%;
+    transition: 1s ease-in-out;
+
+}
+.slider .item img{
+    height: 100%;
+    width: 100%;
+}
+#pre{
+    position: absolute;
+    left: 0px;
+    
+}
+#nxt{
+    position: absolute;
+    right: 0px;
+}
+.active{
+    display: block;
+}
+.inactive{
+    display: none;
+}
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <div class="item active">
+            <img src="./images/slider1.png" alt="">
+        </div>
+        <div class="item inactive">
+            <img src="./images/slider2.jpg" alt="">
+        </div>
+        <div class="item inactive">
+            <img src="./images/slider3.png" alt="">
+        </div>
+        <button id="pre">Previous</button>
+        <button id="nxt">Next</button>
+    </div>
+
+    <script>
+        const ar = document.querySelectorAll('.item');
+        let i=0;
+       nxt.addEventListener('click',()=>{
+        ar[i].classList.add('inactive');;
+        ar[i].classList.remove('active');
+        i = i+1
+        if(i==ar.length){
+            i=0;
+        }
+        ar[i].classList.add('active');
+        ar[i].classList.remove('inactive');
+
+       })
+        
+    </script>
+</body>
+</html>

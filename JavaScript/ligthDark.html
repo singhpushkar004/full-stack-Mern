@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+    
+    .bg-black{
+        background-color: black;
+        color: white;
+    }
+    .bg-white{
+        background-color: #fff;
+        color: black;
+    }
+   </style>
+   <link rel="stylesheet" href="./weatherApp/css/style.css" id="link">
+</head>
+<body>
+    <div class="outer" id="outer">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ipsum id earum nesciunt qui nisi deserunt aut doloribus, reiciendis odit saepe assumenda perspiciatis? Pariatur in perspiciatis repellat at, ullam eligendi.
+    </div>
+    <select onchange="fun()" id="mode">
+      <option value="dark" >Dark</option>
+        <option value="light">Light</option>
+    </select>
+    <script>
+        function fun(){
+            // alert("Hii")
+            let link = document.getElementById('link');
+            link.href="./style.css"
+            console.log(link.href);
+            
+            let mode = document.getElementById('mode').value;
+            // console.log(mode);
+            localStorage.setItem("theme",mode);
+            if(localStorage.getItem('theme')=='light'){
+               let a= document.querySelector('#outer')
+               a.classList.add('bg-white');
+               a.classList.remove('bg-black')
+
+            }
+            else if(localStorage.getItem('theme')=='dark'){
+                let a= document.querySelector('#outer')
+               a.classList.add('bg-black');
+               a.classList.remove('bg-white')
+            }
+            
+        }
+    </script>
+</body>
+</html>

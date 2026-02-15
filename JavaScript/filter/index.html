@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter</title>
+    <style>
+        .outer {
+
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .box {
+            height: 200px;
+            width: 200px;
+            border: 1px solid;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            transition: 1s ease-in-out;
+        }
+
+        .filter {
+            height: 50px;
+            width: 600px;
+            margin: 40px auto;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .cat {
+            height: 40px;
+            width: 80px;
+            border: 1px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .filter>input {
+            height: 40px;
+            width: 200px;
+            border: 2px solid red;
+            font-size: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="filter">
+        <div class="cat" onclick="fun('All')">All</div>
+        <div class="cat" onclick="fun('A')">A</div>
+        <div class="cat" onclick="fun('B')">B</div>
+        <div class="cat" onclick="fun('C')">C</div>
+        <input type="search" placeholder="Search Here....." onkeyup="search()" id="srch">
+
+    </div>
+    <div class="outer">
+        <div class="box A">A hello hi</div>
+        <div class="box B">B how are you</div>
+        <div class="box C">C good afternoon</div>
+        <div class="box A">A good morning</div>
+        <div class="box B">B happy learning</div>
+        <div class="box C">C vijay and amir , vivekanand</div>
+    </div>
+
+    <script>
+        function search(){
+            // alert('Hii')
+            const a = document.querySelectorAll('.box');
+            const val = document.getElementById('srch').value.toLowerCase();
+            // console.log( typeof a);
+            a.forEach((b)=>{
+                if(b.innerHTML.toLowerCase().includes(val)){
+                    b.classList.remove('hide')
+                }else{
+                    b.classList.add('hide')
+                }
+                
+            })
+            
+        }
+        function fun(a) {
+            const b = document.getElementsByClassName('box')
+            if (a == "All") {
+                //handle showing for all elements
+            }
+            else if (a == "A") {
+                for (i = 0; i < b.length; i++) {
+                    // console.log(b[i].classList[1]);
+                    if (!(b[i].classList[1] == 'A')) {
+                        b[i].classList.add('hide')
+
+                    } else {
+                        b[i].classList.remove('hide')
+                    }
+
+                }
+            }
+            else if (a == "B") {
+                for (i = 0; i < b.length; i++) {
+                    // console.log(b[i].classList[1]);
+                    if (!(b[i].classList[1] == 'B')) {
+                        b[i].classList.add('hide')
+
+                    }
+                    else {
+                        b[i].classList.remove('hide')
+                    }
+
+                }
+            }
+            else if (a == "C") {
+                for (i = 0; i < b.length; i++) {
+                    // console.log(b[i].classList[1]);
+                    if (!(b[i].classList[1] == 'C')) {
+                        b[i].classList.add('hide')
+
+                    }
+                    else {
+                        b[i].classList.remove('hide')
+                    }
+
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

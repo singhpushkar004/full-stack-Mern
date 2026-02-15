@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-DO List</title>
+</head>
+<body>
+    <input type="text" placeholder="Enter Task........" name="" id="task">
+    <br>
+    <ul id="list"></ul>
+    <button id="btn">Add</button>
+
+    <script>
+        btn.addEventListener('click',()=>{
+            let tsk = document.getElementById('task');
+            if(tsk.value.trim()==''){
+                alert("Please Enter Task")
+                return ;
+            }
+            //
+            let myTask = JSON.parse(localStorage.getItem('task')) || [];
+            // console.log(myTask);
+             myTask.push(tsk.value);
+            localStorage.setItem("task",JSON.stringify(myTask));
+            tsk.value = "";
+            window.location.reload();
+        });
+        //
+        function show(){
+            let list = document.querySelector('#list');
+            let task = JSON.parse(localStorage.getItem('task'));
+            
+            
+            task.forEach((a,i)=>{
+                let l = document.createElement('li');
+                l.innerHTML = `${a} <button onclick="del(${i})">Delete</button>`;
+                        list.appendChild(l);
+
+                    });
+             
+        }
+        show()
+
+        function del(a){
+            // console.log(a);
+           let task = JSON.parse(localStorage.getItem('task'))
+            task.splice(a,1,);
+            localStorage.setItem('task',JSON.stringify(task))
+           window.location.reload();
+            
+        }
+    </script>
+</body>
+</html>

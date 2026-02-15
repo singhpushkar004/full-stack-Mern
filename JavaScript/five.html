@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+<h2>Simple To-Do App</h2>
+
+<input type="text" id="todoInput" placeholder="Enter a task" />
+<button onclick="addTodo()">Add Task</button>
+
+<ul id="todoList"></ul>
+
+
+
+
+<script>
+
+// 🔥 Function: Add task to LocalStorage
+function addTodo() {
+
+    // 1. Input value lo
+    let task = document.getElementById("todoInput").value;
+
+    // 2. Empty value check
+    if (task === "") {
+        alert("Please enter a task!");
+        return;
+    }
+
+    // 3. LocalStorage se purana data lao (array form me)
+    let todos = JSON.parse(localStorage.getItem("myTodos")) || [];
+    // console.log(JSON.stringify(todos));
+    
+    // 4. New task ko array me add karo
+    todos.push(task);
+
+    // 5. Wapas LocalStorage me save karo
+    localStorage.setItem("myTodos", JSON.stringify(todos));
+
+    // 6. Input clear
+    document.getElementById("todoInput").value = "";
+
+    // 7. List ko update/show karo
+    displayTodos();
+}
+
+
+
+// 🔥 Function: Display all tasks
+function displayTodos() {
+    let list = document.getElementById("todoList");
+
+    // HTML ko empty karo
+    list.innerHTML = "";
+
+    // LocalStorage se data lao
+    let todos = JSON.parse(localStorage.getItem("myTodos")) || [];
+console.log(todos);
+
+    // Har item ko list me add karo
+    todos.forEach((item, index) => {
+        list.innerHTML += `
+            <li>
+                ${item}
+                <button onclick="deleteTodo(${index})">Delete</button>
+            </li>
+        `;
+    });
+}
+
+
+
+// 🔥 Function: Delete specific task
+function deleteTodo(index) {
+    let todos = JSON.parse(localStorage.getItem("myTodos")) || [];
+
+    // Selected index wala item remove karo
+    todos.splice(index, 1);
+
+    // Updated array wapas save karo
+    localStorage.setItem("myTodos", JSON.stringify(todos));
+
+    // List update
+    displayTodos();
+}
+
+
+
+// Page load hote hi data show ho jaye
+displayTodos();
+
+</script>
+
+
+<!-- <script src="demo.js"></script> -->
+</body>
+</html>  
