@@ -14,22 +14,19 @@ const Dashboard = () => {
   }
 
 
-const [file ,setFile] = useState({
-  picture:''
-});
+const [file ,setFile] = useState(null);
 const handleChange = (e)=>{
-  setFile(()=>({...file,[e.target.name]:e.target.value}))
+  setFile(()=>({...file,[e.target.name]:e.target.files[0]}))
+  console.log(e);
+  
  
 }
 const handleSubmit = async(e)=>{
   e.preventDefault();
-  // console.log(file);
-  const id = localStorage.getItem('id');
-  const res = await axios.put(`http://localhost:5000/api/upload/${id}`,file)
-  console.log(res);
+  let id = localStorage.getItem("id");
+  const res = await axios.put(`http://localhost:5000/api/upload/${id}`,file,{headers:{'Content-Type':"multipart/form-data"}})
+  console.log(res); 
   
-  
-
 }
   return (
     <div>Dashboard
@@ -41,7 +38,7 @@ const handleSubmit = async(e)=>{
       }}>Logout</button>
 
       {/* file uploading code started  */}
-      <form method='post' encType="multipart/form-data" onSubmit={handleSubmit}>
+      <form method='post'  onSubmit={handleSubmit}>
         <label htmlFor="file">Choose File</label>
         <input type="file" name="picture" id="file" onChange={handleChange}/>
         <input type="submit" />

@@ -3,39 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Object</title>
+    <title>Document</title>
 </head>
 <body>
-    <script>
-    //  const obj = {
-    //     name:"Pushkar",
-    //     greet:()=>{
-    //         console.log("Hey i am method");
-            
-    //     },
-    //     Details:{
-    //         city:"Bareilly",
-    //         Village:"Harharpur"
-    //     }
-    //  }
-    // //  obj.greet()
-    //    console.log(obj.Details.city);
-       
-        const a = {
-            name:"Pushkar singh",
-            branch:"cse",
-            age:"1234"
-        }
-       // spread , rest   ...arr
-    //    let b = Object.assign(a);
-    // let b = Object.entries(a)
-    let b = {...a};
-        // create(target , source)
-        
-       console.log(b);
-       
-      
-        
-    </script>
+    
+    <form action="http://localhost:5000/api/upload/" method="post" enctype="multipart/form-data">
+        <input type="file" name="picture" id="">
+        <input type="submit" >
+    </form>
 </body>
 </html>
